@@ -1,12 +1,56 @@
-package org.east.laugh.app.entity;
+package org.east.laugh.app.domain;
+
+import java.sql.Timestamp;
+import java.util.List;
 
 public class User {
-    int id;
+    Integer id;
     String email;
     String pwd;
     String name;
     String group;
     String info;
+
+    Timestamp created_at;
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
+    }
+
+    private List<Blog> blogs;
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+
+    public User() {
+    }
+
+    public User(String email, String pwd, String name,String group) {
+        this.email = email;
+        this.pwd = pwd;
+        this.name = name;
+        this.group = group;
+    }
+
+    public User(Integer id, String email, String pwd, String name, String group, String info, Timestamp created_at, List<Blog> blogs) {
+        this.id = id;
+        this.email = email;
+        this.pwd = pwd;
+        this.name = name;
+        this.group = group;
+        this.info = info;
+        this.created_at = created_at;
+        this.blogs = blogs;
+    }
 
     @Override
     public String toString() {
@@ -17,6 +61,8 @@ public class User {
                 ", name='" + name + '\'' +
                 ", group='" + group + '\'' +
                 ", info='" + info + '\'' +
+                ", created_at=" + created_at +
+                ", blogs=" + blogs +
                 '}';
     }
 
